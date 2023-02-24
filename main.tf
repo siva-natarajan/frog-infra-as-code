@@ -1,3 +1,17 @@
+terraform {
+ required_providers {
+   aws = {
+     source = "hashicorp/aws"
+   }
+ }
+ 
+ backend "s3" {
+   region = "us-east-1"
+   bucket = "frog-infra-as-code"
+   key    = "terraform.tfstate"
+ }
+}
+
 provider "aws" {
   version = "~> 2.0"
   region = "us-east-1"
